@@ -1,4 +1,4 @@
-# 🛠️ Comece com Solidity!
+# 🛠️ Comece com Solidity AGORA MESMO!
 
 Este template mostra um contrato inteligente básico em Solidity com um ambiente de desenvolvimento e implantação totalmente configurado.
 
