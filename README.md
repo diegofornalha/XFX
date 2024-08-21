@@ -131,6 +131,3 @@ npx hardhat test
 
 ---
 
-## **O que vem a seguir**
-
-Para construir um aplicativo web usando este contrato inteligente, confira nosso próximo template: [**"Construir uma aplicação web3 usando thirdweb"**](https://replit.com/@thirdweb/Build-a-web3-Application-using-thirdweb)!
