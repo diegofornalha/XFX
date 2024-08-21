@@ -1,121 +1,136 @@
-<!-- Banner Image -->
+# 🛠️ Comece com Solidity!
 
-![thirdweb solidity hardhat get started hero image](hero.png)
+Este template mostra um contrato inteligente básico em Solidity com um ambiente de desenvolvimento e implantação totalmente configurado.
 
-<h1 align='center'>Get Started with Solidity!</h1>
+---
 
-<p align='center'>This template showcases a basic Solidity smart contract with a full development and deployment environment set up.</p>
+**Ferramentas utilizadas neste template:**
 
-<br />
+- [**Solidity**](https://docs.soliditylang.org/en/v0.8.14/) para a linguagem de desenvolvimento do nosso contrato inteligente.
+- [**Hardhat**](https://hardhat.org/) para o ambiente de desenvolvimento (testes, depuração, etc.).
+- [**thirdweb deploy**](https://portal.thirdweb.com/thirdweb-deploy) para implantar o contrato na blockchain sem usar uma chave privada.
 
-<b>Tools used in this template: </b>
+---
 
-[Solidity](https://docs.soliditylang.org/en/v0.8.14/) for the development language of our smart contract
+**Comandos Principais:**
 
-[Hardhat](https://hardhat.org/) for the development environment (testing, debugging, etc.)
+- `npx thirdweb deploy`: Implanta o contrato inteligente.
+- `npx hardhat test`: Executa a suíte de testes (testes unitários).
 
-[thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy) to deploy the contract to the blockchain without using a private key
+---
 
-<br />
+## **Como usar este template**
 
-<b>Key Commands: </b>
+### **Explorando o Contrato Inteligente**
 
-`npx thirdweb deploy`: Deploy the smart contract
+Dê uma olhada no arquivo [`Greeter.sol`](https://www.notion.so/flow-br/contracts/Greeter.sol), onde você encontrará um contrato inteligente!
 
-`npx hardhat test`: Run the test suite (unit tests)
+Ele é básico, mas é um ótimo ponto de partida para explicar como construir, testar e implantar contratos inteligentes usando Solidity.
 
-<br />
-
-<h2 align='center'>How to use this template</h2>
-
-<h3 align='left'><b>Exploring the Smart Contract</b></h3>
-
-Take a look at the [`Greeter.sol`](./contracts/Greeter.sol) file, you'll find a smart contract!
-
-It's very basic, but it's a great starting point to explain how to build, test, and deploy smart contracts using Solidity.
-
-Firstly, we declare our contract's [License](https://spdx.org/licenses/) and [Solidity Version](https://github.com/ethereum/solidity/releases).
+Primeiro, declaramos a [**Licença**](https://spdx.org/licenses/) e a [**Versão do Solidity**](https://github.com/ethereum/solidity/releases) do nosso contrato:
 
 ```solidity
+solidityCopy code
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
+
 ```
 
-Then, we define our first `contract`, called `Greeter`!
+Em seguida, definimos o nosso primeiro `contract`, chamado `Greeter`!
 
-A `contract` is a smart contract, which is a collection containing:
+Um `contract` é um contrato inteligente, que é uma coleção contendo:
 
-1. Functions
-2. Data / State
+1. Funções
+2. Dados / Estado
 
-That live at a specific address on the blockchain.
+Que vivem em um endereço específico na blockchain:
 
 ```solidity
+solidityCopy code
 contract Greeter {
 
 }
+
 ```
 
-We define a `variable` (data) called `greeting`, which is a `private` `string`.
+Definimos uma `variável` (dados) chamada `greeting`, que é uma `string` **privada**.
 
-This just means it is not publicly accessible by other contracts or users.
+Isso significa que ela não é acessível publicamente por outros contratos ou usuários:
 
 ```solidity
+solidityCopy code
 string private greeting;
-```
-
-The `constructor` is what gets called when the contract is first created.
-
-When we deploy the contract, we'll let the contract know what the initial value of the `greeting` variable is, by passing in a `string` as an argument and setting the value of `greeting` to that string.
 
 ```
+
+O `constructor` é o que é chamado quando o contrato é criado pela primeira vez.
+
+Quando implantamos o contrato, vamos informar ao contrato qual é o valor inicial da variável `greeting`, passando uma `string` como argumento e definindo o valor de `greeting` para essa string:
+
+```solidity
+solidityCopy code
 constructor(string memory _greeting) {
     greeting = _greeting;
 }
+
 ```
 
-Since we made our `greeting` variable `private`, we can write a `view` that reads and returns the value of the `greeting` variable.
+Como fizemos nossa variável `greeting` **privada**, podemos escrever uma `view` que lê e retorna o valor da variável `greeting`.
 
-Since this is `public`, it can be accessed by other contracts or users. You'll also notice the `view` keyword, which means this function will not modify any state or data in our contract; it simply just returns some data to the caller.
+Como isso é `public`, pode ser acessado por outros contratos ou usuários. Você também notará a palavra-chave `view`, o que significa que essa função não modificará nenhum estado ou dado em nosso contrato; ela simplesmente retorna alguns dados para o chamador:
 
 ```solidity
+solidityCopy code
 function greet() public view returns (string memory) {
     return greeting;
 }
+
 ```
 
-Finally, we have a `function` called `setGreeting`, which takes in a `string` as an argument and sets the value of `greeting` to that string.
+Finalmente, temos uma `função` chamada `setGreeting`, que recebe uma `string` como argumento e define o valor de `greeting` para essa string.
 
-This allows a user to change the value of `greeting` to something else.
+Isso permite que um usuário altere o valor de `greeting` para outra coisa:
 
 ```solidity
+solidityCopy code
 function setGreeting(string memory _greeting) public {
     greeting = _greeting;
 }
+
 ```
 
-<h3 align='left'><b>Deploying the smart contract</b></h3>
+---
 
-To deploy the contract to the blockchain, run the below script:
+### **Implantando o contrato inteligente**
+
+Para implantar o contrato na blockchain, execute o script abaixo:
 
 ```bash
+bashCopy code
 npx thirdweb deploy
+
 ```
 
-This command uses [thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy) to:
+Esse comando usa [**thirdweb deploy**](https://portal.thirdweb.com/thirdweb-deploy) para:
 
-1. Compile your smart contract and detect any errors
-2. Upload the contract ABI to IPFS
-3. Generate a URL to deploy the contract on the thirdweb dashboard.
+1. Compilar seu contrato inteligente e detectar quaisquer erros.
+2. Fazer upload da ABI do contrato para o IPFS.
+3. Gerar uma URL para implantar o contrato no painel do thirdweb.
 
-<h3 align='left'><b>Testing the Contract</b></h3>
+---
 
-To run the test suite and see if your contract works as you expect, run the below script:
+### **Testando o Contrato**
+
+Para executar a suíte de testes e ver se o seu contrato funciona como esperado, execute o script abaixo:
 
 ```bash
+bashCopy code
 npx hardhat test
+
 ```
 
-## What's Next
+---
 
-To build a web-app application using this smart contract, check out our next template, ["Build a web3 application using thirdweb"](https://replit.com/@thirdweb/Build-a-web3-Application-using-thirdweb)!
+## **O que vem a seguir**
+
+Para construir um aplicativo web usando este contrato inteligente, confira nosso próximo template: [**"Construir uma aplicação web3 usando thirdweb"**](https://replit.com/@thirdweb/Build-a-web3-Application-using-thirdweb)!
