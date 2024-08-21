@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/runner/Get-Started-with-Solidity-using-Hardhat-and-thirdweb-deploy/contracts/Greeter.sol": {
-      "lastModificationDate": 1672625884637,
+    "/Users/flow/Desktop/Desktop/XFX/contracts/Greeter.sol": {
+      "lastModificationDate": 1724278084476,
       "contentHash": "84737b971673256d3abcf88f38fe0597",
       "sourceName": "contracts/Greeter.sol",
       "solcConfig": {
