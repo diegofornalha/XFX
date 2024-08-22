@@ -1,4 +1,6 @@
-require("@nomiclabs/hardhat-waffle");
+const { task } = require("hardhat/config");
+require('@nomiclabs/hardhat-ethers');
+require('@nomiclabs/hardhat-waffle');
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
